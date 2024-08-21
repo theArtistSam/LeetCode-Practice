@@ -22,9 +22,11 @@ class Solution(object):
             # Check if the next two characters form a valid numeral
             if c < len(s) - 1 and s[c] + s[c + 1] in map:
                 sum += map[s[c] + s[c + 1]]
+                # double jump becuase of two characters
                 c += 2
             else:
                 sum += map[s[c]]
+                # single jump in normal case
                 c += 1
 
         return sum
