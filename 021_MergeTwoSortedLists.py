@@ -10,8 +10,9 @@ class ListNode:
 class Solution:
     def mergeTwoLists(self, list1: Optional[ListNode], list2: Optional[ListNode]) -> Optional[ListNode]:
         # Create a dummy node to start the merged list
-        dummy = ListNode()
-        current = dummy
+
+        first = ListNode()
+        current = first
 
         # Traverse both lists
         while list1 and list2:
@@ -27,7 +28,7 @@ class Solution:
         current.next = list1 if list1 else list2
 
         # Return the merged list, which starts at dummy.next
-        return dummy.next
+        return first.next
 
 # Test the function
 
