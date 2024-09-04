@@ -1,8 +1,14 @@
 class Solution:
     def climbStairs(self, n: int) -> int:
-        # works but let's reduce the time complexity
-        # Still needed to be worked on!
+        memo = {}
+        return self.helper(n, memo)
+
+    # Memorization helps avoiding unnecessary redundant code duplication
+    def helper(self, n: int, memo: dict[int, int]) -> int:
         if n == 0 or n == 1:
             return 1
-        else:
-            return self.climbStairs(n - 1) + self.climbStairs(n - 2)
+        # Fibonacci series for the calculation
+        if n not in memo:
+            memo[n] = self.helper(n-1, memo) + self.helper(n-2, memo)
+
+        return memo[n]
